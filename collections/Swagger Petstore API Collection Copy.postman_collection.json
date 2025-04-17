@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "0723d3b9-816f-4947-bc60-db9f44952c73",
+		"name": "Swagger Petstore API Collection Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23427360"
+	},
+	"item": [
+		{
+			"name": "POST Add New Pet",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 88888,\n  \"category\": {\n    \"id\": 1,\n    \"name\": \"Dog\"\n  },\n  \"name\": \"Bruno\",\n  \"photoUrls\": [\n    \"https://example.com/bruno.jpg\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 100,\n      \"name\": \"playful\"\n    }\n  ],\n  \"status\": \"available\"\n}"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/pet",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Pet by ID (valid)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/pet/88888",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"pet",
+						"88888"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Pet by ID (non-existing)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/pet/9999999",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"pet",
+						"9999999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Add Pet - Missing Required Fields",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 88889,\n  \"photoUrls\": [\n    \"https://example.com/missing.jpg\"\n  ],\n  \"status\": \"available\"\n}"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/pet",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Add Pet - Invalid Data Type",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"not-a-number\",\n  \"category\": {\n    \"id\": 2,\n    \"name\": \"Cat\"\n  },\n  \"name\": \"Whiskers\",\n  \"photoUrls\": [\n    \"https://example.com/cat.jpg\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 101,\n      \"name\": \"cute\"\n    }\n  ],\n  \"status\": \"available\"\n}"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/pet",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Pet by ID - Invalid ID Format",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid pet ID format returns error\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([400, 404, 500]);",
+							"});",
+							"",
+							"pm.test(\"Response contains error or message\", function () {",
+							"    let body = pm.response.text();",
+							"    pm.expect(body).to.include(\"404\").includes(\"unknown\").includes(\"java.lang.NumberFormatException: For input string: \\\"invalid_id\\\"\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/pet/invalid_id",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"pet",
+						"invalid_id"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
