@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-16T21:47:40.782Z",
+    "end": "2025-04-16T21:47:46.700Z",
+    "duration": 5918,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "387e7d0e-ab78-43c8-8a4a-57b949c1990d",
+      "title": "",
+      "fullFile": "cypress/e2e/tests/HomePage.cy.js",
+      "file": "cypress/e2e/tests/HomePage.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4cd09d05-dcdc-40f3-9652-7489a0ef1a60",
+          "title": "Test Case B :Sign In",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should register a new user successfully",
+              "fullTitle": "Test Case B :Sign In should register a new user successfully",
+              "timedOut": null,
+              "duration": 5895,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://magento.softwaretestingboard.com/');\nhomePage.clickonsignInButton();\n// Validate that the login page is displayed\ncy.url().should('include', 'customer/account/login');\ncy.get('h1').should('contain', 'Customer Login'); // Adjust this assertion as per the actual UI\ncy.get('h1').should('be.visible');\n//  cy.contains('a', 'Sign In').click();  // Simple and reliable if text is unique\n// HomePage.SignIn.clickonsignInButton();",
+              "err": {},
+              "uuid": "aa0955f2-8392-4729-b7c9-11e0e4877653",
+              "parentUUID": "4cd09d05-dcdc-40f3-9652-7489a0ef1a60",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aa0955f2-8392-4729-b7c9-11e0e4877653"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5895,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

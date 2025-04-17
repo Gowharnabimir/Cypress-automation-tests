@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.194" tests="1" failures="1">
+  <testsuite name="Root Suite" timestamp="2025-04-14T20:26:43" tests="1" file="cypress/e2e/tests/resgisterTest.cy.js" time="0.194" failures="1">
+    <testcase name="An uncaught error was detected outside of a test" time="0.000" classname="An uncaught error was detected outside of a test">
+      <failure message="The following error originated from your test code, not from Cypress.
+
+  &gt; process is not defined
+
+When Cypress detects uncaught errors originating from your test code it will automatically fail the current test.
+
+Cypress could not associate this error to any specific test.
+
+We dynamically generated a new test to display this failure." type="ReferenceError"><![CDATA[ReferenceError: The following error originated from your test code, not from Cypress.
+
+  > process is not defined
+
+When Cypress detects uncaught errors originating from your test code it will automatically fail the current test.
+
+Cypress could not associate this error to any specific test.
+
+We dynamically generated a new test to display this failure.
+    at ./node_modules/ci-info/index.js (webpack://cypress-automation-tests/./node_modules/ci-info/index.js:5:0)
+    at __webpack_require__ (webpack://cypress-automation-tests/webpack/bootstrap:19:0)
+    at ./node_modules/cypress/lib/util.js (webpack://cypress-automation-tests/./node_modules/cypress/lib/util.js:12:13)
+    at __webpack_require__ (webpack://cypress-automation-tests/webpack/bootstrap:19:0)
+    at ./node_modules/cypress/index.js (webpack://cypress-automation-tests/./node_modules/cypress/index.js:6:13)
+    at __webpack_require__ (webpack://cypress-automation-tests/webpack/bootstrap:19:0)
+    at ./cypress.config.js (webpack://cypress-automation-tests/./cypress.config.js:1:25)
+    at __webpack_require__ (webpack://cypress-automation-tests/webpack/bootstrap:19:0)
+    at ./cypress/pages/RegistrationPage.js (webpack://cypress-automation-tests/./cypress/pages/RegistrationPage.js:1:22)
+    at __webpack_require__ (webpack://cypress-automation-tests/webpack/bootstrap:19:0)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>
